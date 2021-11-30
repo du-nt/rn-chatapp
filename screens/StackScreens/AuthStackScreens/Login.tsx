@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -36,12 +36,12 @@ export default function Login() {
       setVisible(true);
     },
   });
-  useEffect(() => {
-    GoogleSignin.configure({
-      webClientId:
-        '1005743080377-qm7ghvvnngla9qob8uu22dgf8oo5flfa.apps.googleusercontent.com',
-    });
-  }, []);
+  // useEffect(() => {
+  //   GoogleSignin.configure({
+  //     webClientId:
+  //       '1005743080377-qm7ghvvnngla9qob8uu22dgf8oo5flfa.apps.googleusercontent.com',
+  //   });
+  // }, []);
 
   const _googleLogin = async () => {
     try {

@@ -5,6 +5,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider as PaperProvider} from 'react-native-paper';
 import RNBootSplash from 'react-native-bootsplash';
 import {useReactiveVar} from '@apollo/client';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 import AppIntro from './screens/AppIntroScreens';
 import AuthStack from './navigators/StackNavigators/AuthStackNavigator';
@@ -36,6 +37,13 @@ export default function App() {
 
     init().finally(async () => {
       await RNBootSplash.hide({fade: true});
+    });
+  }, []);
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        '1005743080377-qm7ghvvnngla9qob8uu22dgf8oo5flfa.apps.googleusercontent.com',
     });
   }, []);
 
