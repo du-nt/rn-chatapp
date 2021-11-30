@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1005743080377",
+    "project_id": "rnapp-f567d",
+    "storage_bucket": "rnapp-f567d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005743080377:android:c4fefb64a7296a2b71ec68",
+        "android_client_info": {
+          "package_name": "com.rnappts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005743080377-4093ougcce5cssuipa59tn00fne6jb2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnappts",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1005743080377-qm7ghvvnngla9qob8uu22dgf8oo5flfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2qSBp8ZJFU1ApGXs_B0U4uJ6bdowf3LA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005743080377-qm7ghvvnngla9qob8uu22dgf8oo5flfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

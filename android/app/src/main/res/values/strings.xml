@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RnAppTs</string>
+    <string name="facebook_app_id">4816692391698305</string>
+<string name="fb_login_protocol_scheme">fb4816692391698305</string>
+
+</resources>
