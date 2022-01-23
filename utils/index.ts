@@ -58,6 +58,7 @@ export const getCurrentUser = async () => {
       isAuthenticated: true,
       user: data.getMe,
     });
+    console.log(data);
   } catch (error) {
     console.log(error);
   }

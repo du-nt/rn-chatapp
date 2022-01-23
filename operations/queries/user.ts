@@ -18,3 +18,9 @@ export const RENEW_TOKEN = gql`
     }
   }
 `;
+
+export const HELLO = gql`
+  query hello {
+    hello
+  }
+`;

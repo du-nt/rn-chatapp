@@ -5,16 +5,13 @@ import React from 'react';
 import { AppRegistry } from 'react-native';
 import Root from './App';
 import { name as appName } from './app.json';
-import {
-  ApolloClient,
-  ApolloProvider,
-  from,
-  HttpLink,
-} from '@apollo/client';
+import { ApolloClient, ApolloProvider, from, HttpLink } from '@apollo/client';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import jwt_decode from 'jwt-decode';
 import { setContext } from '@apollo/client/link/context';
+import messaging from '@react-native-firebase/messaging';
 
+import i18n from './languages/i18n'
 import { authVar, cache } from './cache';
 import * as Q from './operations/queries/user';
 import { saveTokenToStorage } from './utils';
@@ -23,10 +20,10 @@ let refreshTokenRequest = null;
 
 const renewTokenApiClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://apollo-server-rn.herokuapp.com/graphql',
+    uri: 'http://192.168.0.103:5000/graphql',
   }),
-  cache
-})
+  cache,
+});
 
 const renewToken = async () => {
   try {
@@ -37,11 +34,10 @@ const renewToken = async () => {
       query: Q.RENEW_TOKEN,
       variables: { token },
     });
-    const { renewToken: { accessToken, refreshToken } } = data
-    await saveTokenToStorage(
-      accessToken,
-      refreshToken,
-    );
+    const {
+      renewToken: { accessToken, refreshToken },
+    } = data;
+    await saveTokenToStorage(accessToken, refreshToken);
     return accessToken;
   } catch (error) {
     console.log(error);
@@ -75,7 +71,9 @@ const getToken = async () => {
 
 const authLink = setContext(async (_, { headers }) => {
   const token = await getToken();
-  if (!token) { authVar({ isAuthenticated: false, user: null }) }
+  if (!token) {
+    authVar({ isAuthenticated: false, user: null });
+  }
 
   return {
     headers: {
@@ -86,7 +84,7 @@ const authLink = setContext(async (_, { headers }) => {
 });
 
 const httpLink = new HttpLink({
-  uri: 'https://apollo-server-rn.herokuapp.com/graphql',
+  uri: 'http://192.168.0.103:5000/graphql',
 });
 
 export const client = new ApolloClient({
@@ -94,6 +92,8 @@ export const client = new ApolloClient({
   cache,
   connectToDevTools: true,
 });
+
+messaging().setBackgroundMessageHandler(async () => { });
 
 const App = () => (
   <ApolloProvider client={client}>
