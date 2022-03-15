@@ -4,8 +4,6 @@ import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import RootStack from './StackNavigators/RootStackNavigator';
-import Payment from '../screens/DrawerScreens/Payment';
-import Points from '../screens/DrawerScreens/Points';
 import DrawerContent from '../screens/DrawerScreens/DrawerContent';
 
 const Drawer = createDrawerNavigator();
@@ -35,8 +33,6 @@ export default function RootDrawer() {
           ),
         }}
       />
-      <Drawer.Screen name="Payment" component={Payment} />
-      <Drawer.Screen name="Points" component={Points} />
     </Drawer.Navigator>
   );
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
 
-import TabView from '../screens/BottomTabsScreens/TabViewScreens';
-import User from '../screens/BottomTabsScreens/User';
-import Setting from '../screens/BottomTabsScreens/Setting';
+import Chats from '../screens/BottomTabsScreens/Chats';
+import People from '../screens/BottomTabsScreens/People';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,34 +14,25 @@ export default function RootBottomTabs() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
-        name="Explore"
-        component={TabView}
+        name="Chats"
+        component={Chats}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="explore" color={color} size={size} />
-          ),
-          tabBarLabel: t('navigate:explore'),
-        }}
-      />
-      <Tab.Screen
-        name="User"
-        component={User}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="account-circle" color={color} size={size} />
+            <Icon name="chatbubble" color={color} size={size} />
           ),
           tabBarBadge: 3,
-          tabBarLabel: t('navigate:user'),
+          tabBarLabel: t('navigate:chats'),
         }}
       />
       <Tab.Screen
-        name="Setting"
-        component={Setting}
+        name="People"
+        component={People}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="settings" color={color} size={size} />
+            <Icon name="people" color={color} size={size} />
           ),
-          tabBarLabel: t('navigate:settings'),
+          tabBarBadge: 3,
+          tabBarLabel: t('navigate:people'),
         }}
       />
     </Tab.Navigator>

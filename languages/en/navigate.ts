@@ -1,5 +1,4 @@
 export default {
-  explore: 'Explore',
-  user: 'User',
-  settings: 'Settings',
+  chats: 'Chats',
+  people: 'People',
 };
